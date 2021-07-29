@@ -1,9 +1,17 @@
 <div class="container" id="home-container">
   <div class="jumbotron text-center text-white">
     <h1 class="display-4">Alpha Blog</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-success btn-lg" href="#" role="button">Sign up!</a>
+    <p class="lead">Welcome to AlphaBlog, we are happy to allow everyone to write his articles</p>
+    <% if user_signed_in? %>
+      <hr class="my-4">
+      <p>Wanna see what other users wrote?</p>
+      <%= link_to "View Articles", articles_path,class: "btn btn-primary"%>
+      <p>Excited to write new Article?</p>
+      <%= link_to "Create Article", new_article_path,class: "btn btn-success" %>
+    <%else%>
+      <hr class="my-4">
+      <p>Join us now and let us read your articles</p>
+      <%= link_to "Sign up!", new_user_registration_path,class: "btn btn-success btn-lg" %>
+    <%end%>
   </div>
 </div>
