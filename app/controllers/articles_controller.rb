@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
 
 
     def article_authority
-        if current_user.id != @article.id
+        if current_user.id != @article.user_id
             flash[:danger] = "You not allowed to do this only article author can do that"
 			redirect_to articles_path
         end
